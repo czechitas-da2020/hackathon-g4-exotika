@@ -9,7 +9,7 @@ describe('Client open the application and through Sign in button client is redir
             expect(create).toBeExisting()                                       
     })
 
-    it('has a Login table at Authentication page', ()=>{
+    it('has a Create an Account table at Authentication page', ()=>{
             let signIn = browser.$('#SubmitLogin')
             expect(signIn).toBeExisting()                             
     })
