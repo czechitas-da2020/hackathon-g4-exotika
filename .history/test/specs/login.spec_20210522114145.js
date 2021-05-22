@@ -9,19 +9,25 @@ describe('Client sign in the application', () => {
             expect(signIn).toBeExisting()                             
     })
 
-    it('Client fills in his valid data and login', ()=>{
+    it('Clien fills in his email', ()=>{
             let email = browser.$('#email')
             email.click()
-            email.addValue("test.da.hackathon@gmail.com")
-            let password = browser.$('#passwd')
+            email.addValue("test.da.hackathon@gmail.com")                             
+    })
+
+    it('Clien fills in his password', ()=>{
+            let password = browser.$('#passwd')
             password.click()
             browser.pause(2000)
             password.addValue("TvYyW5Bk")
-            browser.pause(2000) 
-            browser.$('#SubmitLogin').click()
-            browser.pause(2000)
-            let user = browser.$('.account_user_name.hide_xs')
-            expect(user).toBeExisting()                            
+            browser.pause(2000)                             
     })
 
-   })
+    it('Clien clicks on Sign in', ()=>{
+            browser.$('#SubmitLogin').click()
+            let user = browser.$('.account_user_name.hide_xs')
+            expect(user)
+                                         
+    })
+
+})

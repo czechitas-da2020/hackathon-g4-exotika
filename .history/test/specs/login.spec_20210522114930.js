@@ -24,4 +24,13 @@ describe('Client sign in the application', () => {
             expect(user).toBeExisting()                            
     })
 
-   })
+   
+
+    it('Client clicks on Sign in', ()=>{
+            browser.$('#SubmitLogin').click()
+            browser.pause(2000)
+            let user = browser.$('.account_user_name.hide_xs')
+            expect(user).toBeExisting()                                         
+    })
+
+})
