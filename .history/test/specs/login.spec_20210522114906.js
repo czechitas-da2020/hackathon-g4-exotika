@@ -9,7 +9,7 @@ describe('Client sign in the application', () => {
             expect(signIn).toBeExisting()                             
     })
 
-    it('Client fills in his valid data and login', ()=>{
+    it('Client fills in his valid data and ', ()=>{
             let email = browser.$('#email')
             email.click()
             email.addValue("test.da.hackathon@gmail.com")
@@ -24,4 +24,19 @@ describe('Client sign in the application', () => {
             expect(user).toBeExisting()                            
     })
 
-   })
+    it('Client fills in his password', ()=>{
+            let password = browser.$('#passwd')
+            password.click()
+            browser.pause(2000)
+            password.addValue("TvYyW5Bk")
+            browser.pause(2000)                             
+    })
+
+    it('Client clicks on Sign in', ()=>{
+            browser.$('#SubmitLogin').click()
+            browser.pause(2000)
+            let user = browser.$('.account_user_name.hide_xs')
+            expect(user).toBeExisting()                                         
+    })
+
+})

@@ -17,11 +17,22 @@ describe('Client sign in the application', () => {
             password.click()
             browser.pause(2000)
             password.addValue("TvYyW5Bk")
-            browser.pause(2000) 
-            browser.$('#SubmitLogin').click()
-            browser.pause(2000)
-            let user = browser.$('.account_user_name.hide_xs')
-            expect(user).toBeExisting()                            
+            browser.pause(2000)                             
     })
 
-   })
+    it('Client fills in his password', ()=>{
+            let password = browser.$('#passwd')
+            password.click()
+            browser.pause(2000)
+            password.addValue("TvYyW5Bk")
+            browser.pause(2000)                             
+    })
+
+    it('Client clicks on Sign in', ()=>{
+            browser.$('#SubmitLogin').click()
+            browser.pause(2000)
+            let user = browser.$('.account_user_name.hide_xs')
+            expect(user).toBeExisting()                                         
+    })
+
+})

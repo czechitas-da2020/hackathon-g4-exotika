@@ -24,4 +24,7 @@ describe('Client sign in the application', () => {
             expect(user).toBeExisting()                            
     })
 
-   })
+   
+
+
+})
