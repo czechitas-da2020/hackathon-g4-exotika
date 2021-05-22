@@ -1,0 +1,10 @@
+describe('Client sign in the application', () => {
+    before (() => {
+        browser.url('http://czechitas-datestovani-hackathon.cz/en/')
+    })
+
+    it('Through Sign in button client is redirected to Create an account page', ()=>{
+            browser.$('.hide_xs').click()
+            let createAnAccount = browser.$('#SubmitCreate')
+            expect(createAnAccount).toBeExisting()                             
+    })
