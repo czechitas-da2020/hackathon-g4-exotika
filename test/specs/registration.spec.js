@@ -1,47 +1,30 @@
-describe('Client creates an account', () => {
+describe('Creates a new account', () => {
     before (() => {
         browser.url('http://czechitas-datestovani-hackathon.cz/en/')
+        browser.fullscreenWindow()
     })
 
-    it('Through Sign in button client is redirected to Create an account page', ()=>{
-            browser.$('.hide_xs').click()
-            let createAnAccount = browser.$('#SubmitCreate')
-            expect(createAnAccount).toBeExisting()                             
-    })
-
-    it('Client fills in his email', ()=>{
-            let email = browser.$('#email_create')
-            email.click()
-            email.addValue("test.da.hackathon1@gmail.com")
-            browser.$('#SubmitCreate').click()
-            let register = browser.$('#submitAccount')
-            expect(register).toBeExisting()                             
-    })
-
-    it('Client chooses his gender', ()=>{
-        browser.$('#id_gender1').click()
-        //expect('span.checked').toBeExisting()
-    })
-    
-    it('Client fills in his first name', ()=>{
+    it('by fill in the valid credentials to the registration form ', ()=>{
+        // click on Sign In button to make a registration
+        let signInButton = browser.$('.hide_xs');
+        signInButton.click();
+        // generate random number to create unique user email address
+        let randomNumber =  Math.floor(Math.random()*10000);
+        let emailAddressField = browser.$('#email_create');
+        emailAddressField.setValue(`test.da.hackathon+${randomNumber}@gmail.com`);
+        let createAnAccount = browser.$('#SubmitCreate');
+        createAnAccount.click()
+        let gender = browser.$('#id_gender1')
+        gender.click()
         let firstName = browser.$('#customer_firstname')
-        firstName.click()
-        firstName.addValue("test.da")
-        //expect('.required.form-group.form-ok').toBeExisting()
-    })   
-
-    it('Client fills in his last name', ()=>{    
-        let lastName = browser.$('#customer_lastname')
-        lastName.click()
-        lastName.addValue("hackathon")
-        //expect('.required.form-group.form-ok').toBeExisting()                             
+        firstName.setValue('Ivan')
+        let lastName = browser.$('#customer_lastname') 
+        lastName.setValue('Novak') 
+        let password = browser.$('#passwd')  
+        password.setValue('Password01') 
+        let submitButton = browser.$('#submitAccount') 
+        submitButton.click()
+        let success = browser.$('.alert.alert-success')
+        expect(success).toBeExisting()
     })
-
-    it('Client fills in password', ()=>{    
-        let password = browser.$('#passwd')
-        password.click()
-        password.addValue("Heslo123")
-        //expect('.required.form-group.form-ok').toBeExisting()                             
-    })
-
 })
